@@ -11,24 +11,31 @@ let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 
-var characterAmount = window.prompt('How many characters would you like? Password must be at least 8 characters.');
-  if (isNaN(characterAmount)) {
-      alert("You must enter a valid number.");
-      return false;
-  } else if (parseInt(characterAmount)< 8) {
-      alert("Too short. Password must be at least 8 characters long.");
-    return false;
+var characterAmount = window.prompt('How many characters would you like? Password must be at least 8 and no more than 128 characters.');
+  
+if (isNaN(characterAmount)) {
+    alert("You must enter a valid number.");
+     return 'Press Generate Password';
+
+} else if (parseInt(characterAmount)< 8) {
+    alert("Too short. Password must be at least 8 characters long.");
+    return 'Press Generate Password';
   } else if (parseInt(characterAmount) >= 128) {
-      alert("Too long. Password must be less than 129 characters.");
-      
-    }
+    alert("Too long. Password must be less than 129 characters.");
+    return 'Press Generate Password';
+    } 
 
 var special = confirm('Do you want special characters such as ! or *?');
 var capital = confirm('Do you want capital letters?');
 var lower = confirm('Do you want lowercase letters?');
 var wantNumbers =confirm('Do you want numbers?');
 
+//if they didnt choose any or different options like one or a couple of options
+if ([characterAmount, special, capital, lower, wantNumbers].includes(false)) {
+    alert('You must select character types.');
+    return 'Press "Generate Password" again'; 
 
+}
 
 
  //arrays
@@ -36,32 +43,31 @@ var wantNumbers =confirm('Do you want numbers?');
     var charTypes = [];
 
 //conditions 
+
 if (special){
     wantedChar = wantedChar.concat(specialChar);
     charTypes.push
-} 
-    
 
+}
+if (capital){
+    wantedChar = wantedChar.concat(capLetters);
+    charTypes.push
 
-//if (capital){
-    //wantedChar = wantedChar.concat(capLetters);
-   // charTypes.push
+}
 
-//}
+if (lower){
+  wantedChar = wantedChar.concat(lowerCase);
+  charTypes.push
+}
 
-//if (lower){
-  //  wantedChar = wantedChar.concat(lowerCase);
-  //  charTypes.push
-//}
+if (wantNumbers){
+    wantedChar = wantedChar.concat(numbers);
+    charTypes.push
+}
 
-//if (wantNumbers){
-    //wantedChar = wantedChar.concat(numbers);
-    //charTypes.push
-//}
-
-//for (var i=0; i < wantNumbers; i++){
-    //charTypes.push(wantedChar[Math.floor(Math.random() * wantedChar.length)]//); 
-//}
+for (var i=0; i < wantNumbers; i++){
+    charTypes.push(wantedChar[Math.floor(Math.random() * wantedChar.length)]); 
+}
 
 var storage = [];
 for (var i = 0; i < characterAmount; i++) {
@@ -69,11 +75,7 @@ for (var i = 0; i < characterAmount; i++) {
     storage.push(wantedChar[index]);
 }
 
-//if they didnt choose any or different options like one or a couple of options
-if ([special, capital, lower, wantNumbers].includes(true)) {
-    alert('You must select character types.');
 
-}
 
 
 return storage.join("");
