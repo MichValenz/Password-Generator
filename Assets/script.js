@@ -17,7 +17,11 @@ if (isNaN(characterAmount)) {
     alert("You must enter a valid number.");
      return 'Press Generate Password';
 
-} else if (parseInt(characterAmount)< 8) {
+} else if(!characterAmount){
+    alert("You must enter a valid number.");
+     return 'Press Generate Password';
+
+}else if (parseInt(characterAmount)< 8) {
     alert("Too short. Password must be at least 8 characters long.");
     return 'Press Generate Password';
   } else if (parseInt(characterAmount) >= 128) {
@@ -30,12 +34,25 @@ var capital = confirm('Do you want capital letters?');
 var lower = confirm('Do you want lowercase letters?');
 var wantNumbers =confirm('Do you want numbers?');
 
-//if they didnt choose any or different options like one or a couple of options
-if ([characterAmount, special, capital, lower, wantNumbers].includes(false)) {
-    alert('You must select character types.');
-    return 'Press "Generate Password" again'; 
+ 
 
+//when no character types were selected or when at least one type was not selected
+
+if ([special, capital, lower].includes(false)){
+    alert('You must select at least two character types.');
+    return 'Press "Generate Password" again'; 
 }
+
+if ([special, lower, numbers].includes(false)){
+    alert('You must select at least two character types.');
+    return 'Press "Generate Password" again'; 
+}
+
+if ([capital, lower, numbers].includes(false)){
+    alert('You must select at least two character types.');
+    return 'Press "Generate Password" again'; 
+}
+
 
 
  //arrays
@@ -46,23 +63,23 @@ if ([characterAmount, special, capital, lower, wantNumbers].includes(false)) {
 
 if (special){
     wantedChar = wantedChar.concat(specialChar);
-    charTypes.push
+    charTypes.push;
 
 }
 if (capital){
     wantedChar = wantedChar.concat(capLetters);
-    charTypes.push
+    charTypes.push;
 
 }
 
 if (lower){
   wantedChar = wantedChar.concat(lowerCase);
-  charTypes.push
+  charTypes.push;
 }
 
 if (wantNumbers){
     wantedChar = wantedChar.concat(numbers);
-    charTypes.push
+    charTypes.push;
 }
 
 for (var i=0; i < wantNumbers; i++){
@@ -76,11 +93,8 @@ for (var i = 0; i < characterAmount; i++) {
 }
 
 
-
-
 return storage.join("");
  
-
 }
 
 
