@@ -3,8 +3,6 @@
 ## Description
 Password Generator is a webpage that provides quick and unique password for any use.
 
-![screenshot of Password website] (Assets/images/passwordscreenshot.png)
-
 
 ## Tasks Completed
 * Added Javascript to existing code to generate the passwords
