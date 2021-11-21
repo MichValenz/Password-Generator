@@ -3,7 +3,7 @@
 ## Description
 Password Generator is a webpage that provides quick and unique password for any use.
 
-![screenshot of Portfolio website](/Assets/images/Screenshot_portfolio.png)
+![screenshot of Password website] (Assets/images/passwordscreenshot.png)
 
 
 ## Tasks Completed
@@ -13,8 +13,8 @@ Password Generator is a webpage that provides quick and unique password for any 
 * Added the requirement for at least one character type to be selected
 
 ## Links
-* [Link to the deployed website]()
-* [Link to the code repository]()
+* [Link to the deployed website](https://michvalenz.github.io/Password-Generator/)
+* [Link to the code repository](https://github.com/MichValenz/Password-Generator)
 
 ## Installation
 Upload all files, including index.html and style.css
